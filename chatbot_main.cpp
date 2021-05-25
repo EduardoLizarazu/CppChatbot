@@ -1,8 +1,3 @@
-/* PROYECTO CHATBOT 
-	Chatbot para centro comercial grande, el cual proporcionara inforamacion 
-	sobre la ubicacion de las tiendas, cine, baños, parqueos, etc.; tambien 
-	se proporcionara alguna informacion adicional sobre lo que se pregunte.
-*/
 
 #include<iostream>
 #include<conio.h>
@@ -10,6 +5,7 @@
 #include <vector>
 using namespace std;
 #define t 4
+
 vector<string> separar(string str);
 void tiendas();
 void cines();
@@ -17,12 +13,12 @@ void cines();
 int main(){
     string chatU;
     vector<string> palabra;
-    // Palabras
+
     string tienda[t] = {"tienda", "tiendas","Tienda", "Tiendas"};
     string cine[t] = {"cine", "cines","Cines", "Cine"};
     
     cout<<"Hola, en que puedo ayudarte? ";
-    getline(cin, chatU);
+    getline(cin, chatU); // Entrada
     
     while((chatU != "salir") && (chatU != "Salir")){
     	
@@ -30,16 +26,15 @@ int main(){
     
     	for(int i = 0; i < palabra.size(); i++){
         	for(int p=0; p < t; p++){
-        		
         		if(palabra[i] == tienda[p]){	
     				tiendas(); 
 				} else if (palabra[i] == cine[p]){
 					cines();
-				}
-				
+				}			
 			} 	
     	}
-    	// Salida del bucle
+    	  
+    	// Salida
     	cout<<"\n\nEn que otra cosa puedo ayudarte? ";
     	getline(cin, chatU);
 	}
